@@ -15,8 +15,33 @@ h1 {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    width: 90%;
 }
 
 .topo {
     margin: 40px 0;
+}
+
+.conteudo {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 40px;
+}
+
+.carta {
+    width: 117px;
+    height: 146px;
+    border-radius: 5px;
+    background-color: #A7E9AF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #99cea8;
+
+    margin: 40px 40px;
+}
+
+.carta img {
+    width: 100px;
 }
