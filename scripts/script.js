@@ -12,7 +12,7 @@ if (numeroCartas >= 4 && numeroCartas <= 14 && ehPar ) {
      while(numeroCartas < 4 || numeroCartas > 14 || ehImpar || numeroCartas == isNaN) {
         numeroCartas = prompt("Com quantas cartas você quer jogar ?");
     }
-     
+
     shuffle();
 }
 
@@ -21,13 +21,20 @@ function shuffle() {
     let seletor = document.querySelector(".conteudo");
 
     for(let i = 0; i < numeroCartas; i++) {
-
         seletor.innerHTML+= 
-        `<div class="carta">
-            <img src="./imagens/front.png" alt="">
-        </div>`;
+        ` <div class="carta virar" onclick="swap(this)">
+                <div class="frente face">
+                    <img class= "estampa" src="./imagens/front.png" alt="">
+                </div>
+                <div class="costas face">
+            
+                </div>
+            </div>`;
     }
     
+}
 
-
+function swap(element) {
+    
+    element.classList.toggle("virar");
 }

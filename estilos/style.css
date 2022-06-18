@@ -15,7 +15,7 @@ h1 {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 90%;
+    width: 85%;
 }
 
 .topo {
@@ -28,20 +28,46 @@ h1 {
     flex-wrap: wrap;
     margin: 40px;
 }
+   
 
 .carta {
     width: 117px;
     height: 146px;
     border-radius: 5px;
-    background-color: #A7E9AF;
     display: flex;
     justify-content: center;
     align-items: center;
     border: 1px solid #99cea8;
-
+    background-color: #A7E9AF;
     margin: 40px 40px;
+    position: relative;
+    transition: all 500ms;
+    transform-style: preserve-3d;
+
 }
 
-.carta img {
+.face {
+    position: absolute;
+    width: 117px;
+    height: 146px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.frente .estampa {
     width: 100px;
+}
+
+.frente {
+    transform: rotateY(180deg);
+}
+
+.costas {
+    background-color: #A7E9AF;
+    backface-visibility: hidden;
+}
+
+.virar {
+    transform: rotateY(180deg);
 }
