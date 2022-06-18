@@ -31,16 +31,14 @@ h1 {
    
 
 .carta {
-    width: 117px;
-    height: 146px;
+    width: 8vw;
+    height: 12vw;
     border-radius: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
     border: 1px solid #99cea8;
-    background-color: #A7E9AF;
     margin: 40px 40px;
-    position: relative;
     transition: all 500ms;
     transform-style: preserve-3d;
 
@@ -48,18 +46,25 @@ h1 {
 
 .face {
     position: absolute;
-    width: 117px;
-    height: 146px;
+    width: 8vw;
+    height: 12vw;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.frente .estampa {
-    width: 100px;
+.estampa {
+    width: 80%;
+    opacity: 1;
+    transition: all 600ms;
+}
+
+.sumir {
+    opacity: 0;
 }
 
 .frente {
+    background-color: #A7E9AF;
     transform: rotateY(180deg);
 }
 
