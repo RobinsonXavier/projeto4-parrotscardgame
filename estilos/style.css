@@ -81,3 +81,50 @@ h6 {
 .virar {
     transform: rotateY(180deg);
 }
+
+@media (max-width: 1023px) {
+    h1 {
+        font-family: 'Roboto', sans-serif;
+        text-align: center;
+        font-size: 12vw;
+        font-weight: 700;
+        color: #75B79E;
+    }
+    .carta {
+        width: 15vw;
+        height: 22vw;
+      
+    
+    }
+    .face {
+        width: 15vw;
+        height: 22vw;
+
+    }
+
+}
+
+@media (max-width: 767px) {
+    .conteudo {
+        display: block;
+        margin: 40px;
+    }
+    h1 {
+        font-family: 'Roboto', sans-serif;
+        text-align: center;
+        font-size: 12vw;
+        font-weight: 700;
+        color: #75B79E;
+    }
+    .carta {
+        width: 29w;
+        height: 39vw;
+      
+    
+    }
+    .face {
+        width: 29vw;
+        height: 39vw;
+    }
+
+}
