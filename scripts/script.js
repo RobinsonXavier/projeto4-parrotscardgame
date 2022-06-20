@@ -1,5 +1,6 @@
 
 let numeroCartas = prompt("Com quantas cartas você quer jogar ?");
+let contadorFinal = 0;
 let contador = 0;
 let listaParrots = [` <div class="carta virar" onclick="swap(this)">
 <div class="frente face">
@@ -116,9 +117,17 @@ function resetar() {
     let selecao = document.querySelectorAll(`.selecionado${contador}`);
 
     for(let index = 0; index < 2; index++) {
-        selecao[index].classList.toggle("virar");
-        selecao[index].querySelector(".costas .estampa").classList.toggle("sumir");
-        selecao[index].classList.toggle(`selecionado${contador}`);
+        selecao[index].classList.add("virar");
+        selecao[index].querySelector(".costas .estampa").classList.add("sumir");
+        selecao[index].classList.remove(`selecionado${contador}`);
+    }
+}
+
+function final() {
+    contadorFinal++;
+    if(document.querySelector(".virar") == null) {
+        contadorFinal = contadorFinal / 2;
+        alert(`Você ganhou em ${contadorFinal} jogadas!`)
     }
 }
 
@@ -128,31 +137,26 @@ function swap(element) {
     let selecionarValor = element.querySelector(".costas h6");
     let valorInterno = selecionarValor.innerHTML;
     let element2 = document.querySelector(`.selecionado${contador}`);
-    element.classList.toggle(`selecionado${contador}`);
+    element.classList.add(`selecionado${contador}`);
     
+
     if(element2) {
         let selecionarValor2 = element2.querySelector(".costas h6");
         let valorInterno2 = selecionarValor2.innerHTML;
-
+    
         if(valorInterno == valorInterno2) {
             contador++;
         } else {
-            setTimeout(resetar, 700);
+            setTimeout(resetar, 1000);
         }
-    }
-
-
-
-
-    element.classList.toggle("virar");
-    seletor.classList.toggle("sumir");
-
-    
+    } 
+    element.classList.remove("virar");
+    seletor.classList.remove("sumir");
+    final();
 
 
     
 }
-
 function comparador() {
     return Math.random() - 0.5;
 }
