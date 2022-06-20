@@ -126,7 +126,6 @@ function resetar() {
 function final() {
     contadorFinal++;
     if(document.querySelector(".virar") == null) {
-        contadorFinal = contadorFinal / 2;
         alert(`Você ganhou em ${contadorFinal} jogadas!`)
     }
 }
@@ -149,11 +148,13 @@ function swap(element) {
         } else {
             setTimeout(resetar, 1000);
         }
+    }
+    if (element.classList.contains("virar")) {
+        element.classList.remove("virar");
+        seletor.classList.remove("sumir");
+        final();
     } 
-    element.classList.remove("virar");
-    seletor.classList.remove("sumir");
-    final();
-
+    
 
     
 }
