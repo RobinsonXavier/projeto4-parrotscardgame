@@ -2,6 +2,7 @@
 let numeroCartas = prompt("Com quantas cartas você quer jogar ?");
 let contadorFinal = 0;
 let contador = 0;
+let contadorTempo = 0;
 let listaParrots = [` <div class="carta virar" onclick="swap(this)">
 <div class="frente face">
     <img class= "estampa" src="./imagens/front.png" alt="">
@@ -153,17 +154,41 @@ function swap(element) {
         element.classList.remove("virar");
         seletor.classList.remove("sumir");
         final();
+        perguntar();
     } 
     
 
     
 }
+
 function comparador() {
     return Math.random() - 0.5;
 }
+
+function contarTempo() {
+    contadorTempo++;
+    document.querySelector(".clock").innerHTML = `<h2>${contadorTempo}</h2>`;   
+    if (document.querySelector(".virar") == null) {
+        clearInterval(idInterval);
+    }
+}
+
+function perguntar() {
+    if (document.querySelector(".virar") == null) {
+        let pergunta = prompt("Gosta de reiniciar a partida ?");
+        if(pergunta == "sim") {
+            window.location.reload(true);
+        } else if (pergunta == "não") {
+            alert("Tenha um bom dia")
+        }
+    }
+} 
+
+document.querySelector(".clock").innerHTML = `<h2>${contadorTempo}</h2>`;   
+
+let idInterval = setInterval(contarTempo, 1000);
 
 
 filtrar();
 
 shuffle();
-
