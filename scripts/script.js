@@ -137,27 +137,34 @@ function swap(element) {
     let selecionarValor = element.querySelector(".costas h6");
     let valorInterno = selecionarValor.innerHTML;
     let element2 = document.querySelector(`.selecionado${contador}`);
-    element.classList.add(`selecionado${contador}`);
-    
 
-    if(element2) {
-        let selecionarValor2 = element2.querySelector(".costas h6");
-        let valorInterno2 = selecionarValor2.innerHTML;
-    
-        if(valorInterno == valorInterno2) {
-            contador++;
-        } else {
-            setTimeout(resetar, 1000);
+    let desbugarCartas = document.querySelectorAll(`.selecionado${contador}`);
+
+    if(desbugarCartas.length < 2) { //agora só pode clicar de 2 em 2 vezes rapidamente
+
+        element.classList.add(`selecionado${contador}`);
+        if(element2) {
+            let selecionarValor2 = element2.querySelector(".costas h6");
+            let valorInterno2 = selecionarValor2.innerHTML;
+        
+            if(valorInterno == valorInterno2) {
+                contador++;
+            } else {
+                setTimeout(resetar, 1000);
+            }
         }
+        if (element.classList.contains("virar")) {
+            element.classList.remove("virar");
+            seletor.classList.remove("sumir");
+            final();
+            perguntar();
+        } 
+        
+    
     }
-    if (element.classList.contains("virar")) {
-        element.classList.remove("virar");
-        seletor.classList.remove("sumir");
-        final();
-        perguntar();
-    } 
     
 
+    
     
 }
 
